@@ -39,6 +39,7 @@ public class ReconHandler {
 		    //Literal l = soln.getLiteral("VarL") ;   // Get a result variable - must be a literal
 		    utils.Result tempRes = new utils.Result();
 		    tempRes.setId(nodeRes.toString());
+		    tempRes.setType(queryO.getType());
 		    resultsAr.add(tempRes);
 		  }
 		  
