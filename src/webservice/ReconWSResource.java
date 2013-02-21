@@ -18,7 +18,6 @@ import json.JsonHandler;
 
 import recon.ReconHandler;
 import utils.Query;
-import utils.Tester;
 	
 /**
  * @author Vanc Levstik
@@ -33,12 +32,12 @@ public class ReconWSResource {
 	@Produces(MediaType.APPLICATION_JSON)	
 	public String getMessage(@QueryParam("query") String q) {
 
-		System.out.println(q);
-		ObjectMapper mapper = new ObjectMapper(); // can reuse, share globally
+		System.out.println(q);		
 		try {
-			Query query = mapper.readValue(q, Query.class);
+			JsonHandler js = new JsonHandler();
+			Query query = js.jsonToObject(q);
 			utils.Result result = ReconHandler.makeQuery(query);
-			String res = mapper.writeValueAsString(result);
+			String res = js.objectToJson(result);
 			return res;
 		}
 		

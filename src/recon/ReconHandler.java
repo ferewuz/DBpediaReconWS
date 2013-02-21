@@ -34,9 +34,7 @@ public class ReconHandler {
 		  for ( ; results.hasNext() ; )
 		  {
 		    QuerySolution soln = results.nextSolution() ;
-		    RDFNode nodeRes = soln.get("s") ;       // Get a result variable by name.
-		    //Resource r = soln.getResource("VarR") ; // Get a result variable - must be a resource
-		    //Literal l = soln.getLiteral("VarL") ;   // Get a result variable - must be a literal
+		    RDFNode nodeRes = soln.get("s") ;       // Get a result variable by name.		    
 		    utils.Result tempRes = new utils.Result();
 		    tempRes.setId(nodeRes.toString());
 		    tempRes.setType(queryO.getType());

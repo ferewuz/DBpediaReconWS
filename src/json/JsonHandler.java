@@ -3,6 +3,7 @@ package json;
 import java.io.IOException;
 
 import utils.Query;
+import utils.Result;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -17,17 +18,38 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  *
  */
 public class JsonHandler {
-
-	public static String makeJson() {
+	ObjectMapper mapper;
 	
-		return null;
+	public JsonHandler(){
+		mapper= new ObjectMapper();
 	}
 	
-	public static Query jsonToObject(String input) {
-		ObjectMapper mapper = new ObjectMapper();
+	public  Query jsonToObject(String input) {
 		try {
 			Query query = mapper.readValue(input, utils.Query.class);
 			return query;
+		
+		} catch (JsonGenerationException e) {
+			 
+			e.printStackTrace();
+			return null;
+			
+		} catch (JsonMappingException e) {
+	 
+			e.printStackTrace();
+			return null;
+		} catch (IOException e) {
+	 
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public String objectToJson(Result result) {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			String res = mapper.writeValueAsString(result);
+			return res;
 		
 		} catch (JsonGenerationException e) {
 			 
