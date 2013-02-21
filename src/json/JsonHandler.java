@@ -26,7 +26,7 @@ public class JsonHandler {
 	public static Query jsonToObject(String input) {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			Query query = mapper.readValue(input, Query.class);
+			Query query = mapper.readValue(input, utils.Query.class);
 			return query;
 		
 		} catch (JsonGenerationException e) {

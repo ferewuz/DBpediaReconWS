@@ -12,8 +12,8 @@ public class Result {
 	private String id;
 	private String name;
 	private String type;
-	private String score;
-	private String match;
+	private double score;
+	private boolean match;
 	public String getId() {
 		return id;
 	}
@@ -32,16 +32,16 @@ public class Result {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getScore() {
+	public Double getScore() {
 		return score;
 	}
-	public void setScore(String score) {
+	public void setScore(Double score) {
 		this.score = score;
 	}
-	public String getMatch() {
+	public Boolean getMatch() {
 		return match;
 	}
-	public void setMatch(String match) {
+	public void setMatch(boolean match) {
 		this.match = match;
 	}
 }
